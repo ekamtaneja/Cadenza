@@ -1,0 +1,131 @@
+units:
+  kx: cx
+  ky: cy
+  px: kx + 2
+  py: ky + 2
+  $default_width: cx-0.5
+  $default_height: cy-0.5
+points:
+  zones:
+    matrix:
+      key:
+        padding: ky
+        spread: kx
+      columns:
+        outer:
+        pinky:
+        ring:
+          key:
+            stagger: 12
+        middle:
+          key:
+            stagger: 7
+        index:
+          key:
+            stagger: -6
+        inner:
+          key:
+            stagger: -2
+      rows:
+        bottom:
+        home:
+        top:
+        num:
+    thumbfan:
+      key:
+        padding: ky
+        spread: kx
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-7, -19]
+      columns:
+        inner:
+        home:
+          key:
+            spread: 21.25
+            splay: -28
+            origin: [-11.75, -9]
+        outer:
+          key:
+            spread: 21.25
+            splay: -28
+            origin: [-9.5, -9]
+      rows:
+        thumb:
+outlines:
+  left:
+    - what: rectangle
+      where: true
+      size: [px, py]
+      fillet: 2
+      bound: true
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [kx-0.5,ky-0.5]
+  board:
+    - what: polygon
+      operation: stack
+      bound: true
+      points:
+        - ref: matrix_outer_num
+          shift: [-0.5px,0.5py]
+        - ref: matrix_pinky_num
+          shift: [0.4px,0.5py]
+        - ref: matrix_ring_num
+          shift: [-0.5px,0.5py]
+        - ref: matrix_ring_num
+          shift: [0.4px, 0.5py]
+        - ref: matrix_middle_num
+          shift: [-0.5px,0.5py]
+        - ref: matrix_middle_num
+          shift: [0.5px,0.5py]
+        - ref: matrix_index_num
+          shift: [-0.4px,0.5py]
+        - ref: matrix_index_num
+          shift: [0.5px,0.5py]
+        - ref: matrix_inner_num
+          shift: [-0.4px,0.5py]
+        - ref: matrix_inner_num
+          shift: [0.5px,0.5py]
+        - ref: matrix_inner_bottom
+          shift: [0.5px,-0.5py]
+        - ref: thumbfan_home_thumb
+          shift: [0.5px,0.5py]
+        - ref: thumbfan_outer_thumb
+          shift: [-0.5px, 0.5py]
+        - ref: thumbfan_outer_thumb
+          shift: [0.5px, 0.5py]
+        - ref: thumbfan_outer_thumb
+          shift: [0.5px,-0.5py]
+        - ref: thumbfan_outer_thumb
+          shift: [-0.5px, -0.5py]
+        - ref: thumbfan_home_thumb
+          shift: [0,-0.5py]
+        - ref: thumbfan_home_thumb
+          shift: [-0.5px,-0.5py]
+        - ref: thumbfan_inner_thumb
+          shift: [-0.5px,-0.5py]
+        - ref: matrix_index_bottom
+          shift: [0.05px,-0.5py]
+        - ref: matrix_index_bottom
+          shift: [-0.5px,-0.5py]
+        - ref: matrix_middle_bottom
+          shift: [0.4px,-0.5py]
+        - ref: matrix_middle_bottom
+          shift: [-0.4px,-0.5py]
+        - ref: matrix_ring_bottom
+          shift: [0.5px,-0.5py]
+        - ref: matrix_ring_bottom
+          shift: [-0.4px,-0.5py]
+        - ref: matrix_pinky_bottom
+          shift: [0.5px,-0.5py]
+        - ref: matrix_outer_bottom
+          shift: [-0.5px,-0.5py]
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+
+  
